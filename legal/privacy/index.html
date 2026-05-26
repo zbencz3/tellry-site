@@ -80,7 +80,9 @@
 
   <h2>What we send to our servers</h2>
   <p>To generate a story you have not yet read, the app sends the story request — your child's name (a first name only, you typed it in), the chosen world, the chosen template, the mood, the length, the language — to our hosted proxy. The proxy forwards the request to the AI provider that writes the story (currently OpenAI or Microsoft Azure OpenAI), receives the result, and returns it to your device.</p>
+  <p>If you use the "From a drawing" feature, the photo of the drawing you pick is sent once to the proxy so an AI model can describe what is visible (color, subject, setting). The description is returned to your device and used as the seed for the story. The proxy does not keep the image after the response is returned.</p>
   <p>Our proxy does not persist these requests after they complete. The AI provider's own retention policy applies on their side; both Microsoft Azure OpenAI and OpenAI's enterprise tier are configured not to train models on submitted prompts.</p>
+  <p>To prevent abuse and apply daily usage caps, each request to our proxy carries an anonymous per-device identifier (Apple's <em>identifierForVendor</em>). This identifier is not linked to your Apple ID, email, or any personal information, and is not used for advertising, profiling, or analytics. It resets if you uninstall all of our apps from your device.</p>
 
   <h2>Anonymous analytics</h2>
   <p>TaleBird uses TelemetryDeck for anonymous usage analytics. TelemetryDeck identifies installations with a one-way hash of Apple's vendor identifier; no information that can be reversed to a specific user, device, or Apple ID ever reaches us or them. Events recorded include: app launch, a story being created, a cover image being generated, a theme being changed, a subscription being shown or purchased. No story title, body, child name, or other personal content is included in analytics events.</p>
